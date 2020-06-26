@@ -1,0 +1,40 @@
+name: Informed Resetter
+
+on:
+  schedule:
+    - cron:  '0 9 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: Reset Informed Items
+      run: python3 src/ResetInformed.py
+
+    - name: Commit Updated Items
+      run: |
+        untracked_files="$(git ls-files --exclude-standard --others)"
+        changed_files="$(git diff --name-only)"
+        if [ -n "${untracked_files}" ] || [ -n "${changed_files}" ]; then
+          git config --local user.email "action_bot@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add . -v
+          git commit -m "Reset Informed Items"
+        fi 
+        
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.5.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

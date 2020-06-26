@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TY DISCOUNT TRACKER</title>
+    <meta name="Theme" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation
+    ================================================== -->
+    <div class="hero-background">
+        <div>
+            <img class="strips" src="images/strips.png">
+        </div>
+        <div class="container">
+            <!-- <div class="header-container header">
+                <a href="#email-form">
+                    <button class="header-btn" onClick="window.location.reload();">Refresh Page</button>
+                </a>
+                <div class="header-right">
+                    <a class="navbar-item" href="#team">The Team</a>
+                    <a class="navbar-item" href="#pricing">Pricing</a>
+                    <a class="navbar-item" href="#features">Features</a>
+                </div>
+            </div> -->
+            <!--navigation-->
+            <br>
+            <br>
+
+
+            <!-- Hero-Section
+          ================================================== -->
+            <!-- style="width: 100%;overflow:auto;" -->
+            <div class="hero row" style="width: 100%;overflow:auto;">
+                <div class="hero-right col-sm-6 col-sm-6" style="float:left; width:45%">
+                    <h1 class="header-headline bold"> TY Discount Tracker <br></h1>
+                    <h4 class="header-running-text light"> Enter the URL and the price threshold of the item you
+                        want to
+                        track. </h4>
+                    <br>
+                    <form class="form-inline">
+                        <input type="text" id="url-box" class="form-control email" placeholder="Enter URL">
+                    </form>
+                    <br>
+                    <form class="form-inline">
+                        <input type="text" id="threshold-box" class="form-control email" placeholder="Enter threshold">
+                    </form>
+                    <!-- <input type="button" class="hero-btn" value="Add Item" onclick="addItem()"> -->
+                    <button onclick="addItem()" class="hero-btn"><i class="material-icons"
+                            style="font-size:20px; position: relative; top: 4px;">add</i> Add Item</button>
+                    <br>
+                    <button id="sync-button" onclick="syncItems()" class="hero-btn-sync cond-vis-sync"><i
+                            class="material-icons" style="font-size:20px; position: relative; top: 4px;">sync</i> Sync
+                        Now</button>
+                </div>
+                <!--hero-left-->
+
+                <!-- style="float:right;" -->
+                <div id="item-div" class="item-list-hidden">
+                    <nav>
+                        <ul id="list">
+                            <div id="app"></div>
+                        </ul>
+                    </nav>
+                    <div style="text-align:center;">
+                        <button onclick="removeItem()" class="hero-btn-rmv cond-vis"><i class="material-icons"
+                                style="font-size:20px; position: relative; top: 4px;">delete</i> Remove Item</button>
+                        <button onclick="editThreshold()" class="hero-btn cond-vis" style="margin-left: 1%;"><i
+                                class="material-icons" style="font-size:20px; position: relative; top: 4px;">create</i>
+                            Edit Threshold</button>
+                    </div>
+                </div>
+            </div>
+            <!--hero-->
+        </div>
+        <!--hero-container-->
+    </div>
+    <!--hero-background-->
+
+</body>
+
+<script type="text/javascript" src="main.js"></script>
+
+</html>
